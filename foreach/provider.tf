@@ -5,7 +5,16 @@ terraform {
       version = "~> 5.0"
     }
   }
+
+
+   backend "s3" {
+    bucket = "chintu-remote-state"
+    key    = "foreach"
+    region = "us-east-1"
+    dynamodb_table = "vinnu-locking"
+  }
 }
+
 
 # Configure the AWS Provider
 provider "aws" {
